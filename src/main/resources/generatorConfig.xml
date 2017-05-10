@@ -8,7 +8,7 @@
         <properties resource="conn.properties" />
           -->
     <!--#############################处理1###############################-->
-    <classPathEntry location="F:\Francis\mysql-connector-java-5.1.35-bin.jar"/>
+    <classPathEntry location="F:\DestTop\graduation_project\niuma\lib\mysql-connector-java-5.1.35-bin.jar" />
     <!-- 指定运行环境是mybatis3的版本 -->
     <context id="testTables" targetRuntime="MyBatis3">
 
@@ -21,27 +21,27 @@
         <!--#############################处理2###############################-->
         <!-- jdbc 连接信息 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/yb?useUnicode=true&amp;characterEncoding=UTF-8" userId="root" password="root">
+                        connectionURL="jdbc:mysql://localhost:3306/moc?useUnicode=true&amp;characterEncoding=UTF-8" userId="root" password="123456">
         </jdbcConnection>
         <!--#############################处理3###############################-->
         <!-- targetPackage指定模型在生成在哪个包 ,targetProject指定项目的src,-->
-        <javaModelGenerator targetPackage="com.francis.entity"
+        <javaModelGenerator targetPackage="com.moc.entity"
                             targetProject="src/main/java">
             <!-- 去除字段前后空格 -->
             <property name="trimStrings" value="false" />
         </javaModelGenerator>
         <!--#############################处理4###############################-->
         <!-- 配置SQL映射文件生成信息 -->
-        <sqlMapGenerator targetPackage="com.francis.dao"
+        <sqlMapGenerator targetPackage="com.moc.dao"
                          targetProject="src/main/java" />
         <!--#############################处理5###############################-->
         <!--配置dao接口生成信息-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.francis.dao" targetProject="src/main/java" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.moc.dao" targetProject="src/main/java" />
         <!--#############################处理6###############################-->
         <!--
         数据库中的表哪些需要生成，就在这里面配置
         不需要重复生成，生成一次，就删除！
         -->
-        <table tableName="antique" domainObjectName="Antique"/>
+        <table tableName="" domainObjectName=""></table>
     </context>
 </generatorConfiguration>

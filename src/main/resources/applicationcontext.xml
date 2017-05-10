@@ -17,21 +17,21 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<!--配置数据源-->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/yb"></property>
-		<property name="user" value="root"></property>
-		<property name="password" value="root"></property>
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://10.101.1.151:3307/moc?useUnicode=true&amp;characterEncoding=utf-8"/>
+		<property name="user" value="moc_user"/>
+		<property name="password" value="moc_pwd"/>
 	</bean>
 	<!--配置session工厂-->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
-		<property name="dataSource" ref="dataSource"></property>
-		<property name="configLocation" value="classpath:mybatis.xml"></property>
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis.xml" />
 		<!--配置扫描式加载SQL映射文件，去掉mybatis.xml中的配置-->
-		<property name="mapperLocations" value="classpath:com/yunbo/dao/*.xml"></property>
+		<property name="mapperLocations" value="classpath:com/moc/dao/*.xml" />
 	</bean>
 	<!--事务管理器-->
 	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	<!--配置事务通知-->
 	<tx:advice transaction-manager="transactionManager" id="interceptor">
@@ -39,39 +39,28 @@
 			<tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception"/>
 			<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
 			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
-			<tx:method name="*" propagation="SUPPORTS"></tx:method>
+			<tx:method name="*" propagation="SUPPORTS"/>
 		</tx:attributes>
 	</tx:advice>
 	<!--切面-->
 	<aop:config>
-		<aop:pointcut id="pt" expression="bean(*Service)"></aop:pointcut>
-		<aop:advisor advice-ref="interceptor" pointcut-ref="pt"></aop:advisor>
+		<aop:pointcut id="pt" expression="bean(*Service)"/>
+		<aop:advisor advice-ref="interceptor" pointcut-ref="pt"/>
 	</aop:config>
 
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	<!--同时开启了json格式的支持-->
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven/>
 
-	<context:component-scan base-package="com.yunbo"></context:component-scan>
+	<context:component-scan base-package="com.moc"/>
 
 	<!-- 配置 转换器，对于在basePackage设置的包（包括子包）下的接口类，如果在Mapper.xml文件中定义过，
 	将被转换成spring的BEAN，在调用 的地方通过@Autowired方式将可以注入接口实例-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-		<property name="basePackage" value="com.yunbo.dao"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<property name="basePackage" value="com.moc.dao"/>
 	</bean>
 
-
 </beans>     
-
-
-
-
-
-
-
-
-
-

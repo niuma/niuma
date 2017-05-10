@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<root>
-<!--action/U
-action,dao,entity,service,util包下面的命名规则，即在各相应包中建立对应自己模块的的包名，例如login/serAction
--->
-</root>

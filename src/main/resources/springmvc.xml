@@ -7,18 +7,28 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd	
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
-	<mvc:annotation-driven/>	
+	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
-	
-	<context:component-scan base-package="com.yunbo.action" />
 
-	 
+	<mvc:interceptors>
+		<!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
+		<bean class="com.moc.interceptor.PassportInterceptor"/>
+		<!--<mvc:interceptor>
+			&lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;
+			&lt;!&ndash;mvc:mapping 拦截器路径配置&ndash;&gt;
+			<mvc:mapping path="/"/>
+			&lt;!&ndash;mvc:exclude-mapping 拦截器不需要拦截的路径&ndash;&gt;
+			&lt;!&ndash;<mvc:exclude-mapping path="/" />&ndash;&gt;
+			<bean class="com.moc.interceptor.PassportInterceptor"/>
+		</mvc:interceptor>-->
+	</mvc:interceptors>
+	
+	<context:component-scan base-package="com.moc.action" />
+
 	<!-- 配置SpringMVC的视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 
-
-	
 </beans>

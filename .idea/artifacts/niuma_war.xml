@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="yunbo01:war">
+  <artifact type="war" name="niuma:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="yunbo01.war">
-      <element id="artifact" artifact-name="yunbo01:war exploded" />
+      <element id="artifact" artifact-name="niuma:war exploded" />
     </root>
   </artifact>
 </component>
