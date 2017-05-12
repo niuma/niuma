@@ -19,7 +19,7 @@ function login(){
 	}
 	$.ajax({
 	    type: "post",
-	    url: "/niuma/user/loginByUsername.action",
+	    url: "/user/loginByUsername.action",
 		data: {"username":username, "password":password, "remember":remember},
 		success: function (map) {
             if (map.msg == "success"){
@@ -84,7 +84,7 @@ function register() {
     }
     $.ajax({
         type: "post",
-        url: "/niuma/user/register.action",
+        url: "/user/register.action",
         data: {"username":username, "password":password1, "phone":phone, "mail":mail},
 
         success: function (map) {

@@ -77,13 +77,13 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="widget">
-                    <p>童宝开讲</p>
-                    <p>原创故事</p>
-                    <p>萌娃食谱</p>
-                    <p>保健秘方</p>
-                    <p>实录集</p>
-                    <p>乐活集</p>
-                    <p>搔头集</p>
+                    <a href=""><p>童宝开讲</p></a>
+                    <a href=""><p>原创故事</p></a>
+                    <a href=""><p>萌娃食谱</p></a>
+                    <a href=""><p>保健秘方</p></a>
+                    <a href=""><p>实录集</p></a>
+                    <a href=""><p>乐活集</p></a>
+                    <a href=""><p>搔头集</p></a>
                 </div>
             </div>
             <div class="col-md-9">
