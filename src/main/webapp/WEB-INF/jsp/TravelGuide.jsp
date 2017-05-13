@@ -318,7 +318,6 @@
             });
         }
 
-
         function getJsonLength(jsonData){
             var jsonLength = 0;
             for(var item in jsonData){
@@ -330,12 +329,14 @@
         function DisplayFirst(){
             var imageHtml = "";
             for (var i = 0; i < 2 && i < jsLength; i++) {
-                imageHtml += "<div class='col-md-3 image'>"
+                imageHtml +="<a href='${proPath}/parentChildTourShowMore/detail.action?name="+json[i].pctourId+"'>"
+					+"<div class='col-md-3 image'>"
                     +"<img src='${proPath}/"+json[i].picture+"' width='200px' height='150px'>"
                     +"</div>"
                     +"<div class='col-md-3 image-word'>"
                     +"<p>"+json[i].word+"</p>"
-                	+"</div>";
+                	+"</div>"
+					+"</a>";
             }
             document.getElementById("pctour").innerHTML = imageHtml;
         }

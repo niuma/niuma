@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -22,7 +24,6 @@ public class ActivityInfoDetailDisplayAction {
     @Resource
     private ActivityParticipatingService activityParticipatingService;
 
-
     @RequestMapping("/display")
     public String display(@RequestParam("name") Integer activityId, Model model) {
         ActivityInfo activityInfoDetail = activityInfoService.getGivenActivityInfo(activityId);
@@ -32,7 +33,8 @@ public class ActivityInfoDetailDisplayAction {
         model.addAttribute("activityInfoDetail", activityInfoDetail);
         model.addAttribute("activityInfo", activityInfo);
 
-        boolean activityType = activityParticipatingService.selectByUidAndAid(10000, activityId);
+
+        boolean activityType = activityParticipatingService.selectByUidAndAid(1000, activityId);
         if (activityType)
             model.addAttribute("part", true);
         else
@@ -41,14 +43,16 @@ public class ActivityInfoDetailDisplayAction {
     }
 
     @RequestMapping("/baoming")
-    public String baoming(@RequestParam("aid") int aid) {
-        activityParticipatingService.insert(10000, aid);
+    public String baoming(@RequestParam("aid") int aid,HttpSession session) {
+        int uid = Integer.valueOf(session.getAttribute("userid").toString());
+        activityParticipatingService.insert(uid, aid);
         return "redirect:/activityInfoDetailDisplay/display.action?name=" + aid;
     }
 
     @RequestMapping("/quxiao")
-    public String quxiao(@RequestParam("aid") int aid) {
-        activityParticipatingService.cancel(10000, aid);
+    public String quxiao(@RequestParam("aid") int aid,HttpSession session) {
+        int uid = Integer.valueOf(session.getAttribute("userid").toString());
+        activityParticipatingService.cancel(uid, aid);
         return "redirect:/activityInfoDetailDisplay/display.action?name=" + aid;
     }
 

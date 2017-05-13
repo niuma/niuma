@@ -8,7 +8,7 @@
         <properties resource="conn.properties" />
           -->
     <!--#############################处理1###############################-->
-    <classPathEntry location="F:\DestTop\graduation_project\niuma\lib\mysql-connector-java-5.1.35-bin.jar" />
+    <classPathEntry location="F:\Graduation\niuma5_10\lib\mysql-connector-java-5.1.35-bin.jar" />
     <!-- 指定运行环境是mybatis3的版本 -->
     <context id="testTables" targetRuntime="MyBatis3">
 
@@ -21,7 +21,7 @@
         <!--#############################处理2###############################-->
         <!-- jdbc 连接信息 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/moc?useUnicode=true&amp;characterEncoding=UTF-8" userId="root" password="123456">
+                        connectionURL="jdbc:mysql://10.101.1.151:3307/moc?useUnicode=true&amp;characterEncoding=UTF-8" userId="moc_user" password="moc_pwd">
         </jdbcConnection>
         <!--#############################处理3###############################-->
         <!-- targetPackage指定模型在生成在哪个包 ,targetProject指定项目的src,-->
@@ -42,6 +42,6 @@
         数据库中的表哪些需要生成，就在这里面配置
         不需要重复生成，生成一次，就删除！
         -->
-        <table tableName="" domainObjectName=""></table>
+        <table tableName="pctours" domainObjectName="Pctours"></table>
     </context>
 </generatorConfiguration>

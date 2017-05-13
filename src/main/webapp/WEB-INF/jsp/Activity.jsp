@@ -78,6 +78,7 @@
 
 	<body>
 		<jsp:include page="nav.jsp" flush="true" />
+
 		<%--<header class="main-header" style="background-image: url(images/cover.jpeg)"></header>--%>
   		<div class="container sections-wrapper">
   			<div class="row">
@@ -85,7 +86,7 @@
   				<div class="col-md-9">
 	  				<div class="widget">
 						<ul class="nav nav-tabs">
-							<li class="active"><a>出游指南</a></li>
+							<li class="active"><a>活动报名</a></li>
 						</ul>
 						<div class="inner">
 							<h2>${activityInfoDetail.activityTitle}</h2>
