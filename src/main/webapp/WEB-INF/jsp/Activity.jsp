@@ -113,15 +113,20 @@
 						</ul>
 						<div class="inner">
 							<div class="row">
-								<div class="col-xs-4 col-md-4">
-									<a href="https://www.ele.me/"><img src="${proPath}/picture/11.jpg" width="200px" height="150px"></a>
-								</div>
-								<div class="col-xs-4 col-md-4">
-									<a href="http://waimai.meituan.com/"><img src="${proPath}/picture/11.jpg" width="200px" height="150px"></a>
-								</div>
-								<div class="col-xs-4 col-md-4">
-									<a href="http://waimai.baidu.com/"><img src="${proPath}/picture/11.jpg" width="200px" height="150px"></a>
-								</div>
+								<c:forEach items="${ad1}" var="ad1" begin="0" end="2">
+									<div class="col-xs-4 col-md-4">
+										<a href="${ad1.adLink}"><img src="${proPath}${ad1.adPicture}" width="200px" height="150px"></a>
+									</div>
+								</c:forEach>
+
+									<%--<a href="https://www.ele.me/"><img src="${proPath}/picture/11.jpg" width="200px" height="150px"></a>--%>
+								<%----%>
+								<%--<div class="col-xs-4 col-md-4">--%>
+									<%--<a href="http://waimai.meituan.com/"><img src="${proPath}/picture/11.jpg" width="200px" height="150px"></a>--%>
+								<%--</div>--%>
+								<%--<div class="col-xs-4 col-md-4">--%>
+									<%--<a href="http://waimai.baidu.com/"><img src="${proPath}/picture/11.jpg" width="200px" height="150px"></a>--%>
+								<%--</div>--%>
 							</div>
 						</div>
 					</div>
@@ -145,9 +150,9 @@
 							<li class="active"><a>近期活动推荐</a></li>
 						</ul>
 						<div class="inner">
-							<a href="https://www.ele.me/"><img src="${proPath}/picture/11.jpg" width="100%" height="150px"></a>
-							<a href="http://waimai.meituan.com/"><img src="${proPath}/picture/11.jpg" width="100%" height="150px"></a>
-							<a href="http://waimai.baidu.com/"><img src="${proPath}/picture/11.jpg" width="100%" height="150px"></a>
+							<c:forEach items="${ad2}" var="ad2" begin="0" end="2">
+								<a href="${ad2.adLink}"><img src="${proPath}${ad2.adPicture}" width="200px" height="150px"></a>
+							</c:forEach>
 						</div>
 					</div>
 				</div>

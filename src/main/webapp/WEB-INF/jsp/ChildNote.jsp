@@ -109,7 +109,7 @@
 									</div>
 									<div class="row">
 										<%--<button type="button" style="float:right" class="btn btn-primary">报名</button>--%>
-										<a href="${proPath}/activityInfoDetailDisplay/display.action?name=${item.activityId}" style="float: right">点击查看详情页</a>
+										<a href="${proPath}/activityInfoDetailDisplay/display.action?name=${item.activityId}&area1=activity_youmaylike&area2=activity_recommmend" style="float: right">点击查看详情页</a>
 									</div>
 								</div>
 							</c:forEach>

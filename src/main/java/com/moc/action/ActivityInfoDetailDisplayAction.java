@@ -1,8 +1,10 @@
 package com.moc.action;
 
 import com.moc.entity.ActivityInfo;
+import com.moc.entity.Advertise;
 import com.moc.service.ActivityInfoService;
 import com.moc.service.ActivityParticipatingService;
+import com.moc.service.AdvertisementService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,15 +25,24 @@ public class ActivityInfoDetailDisplayAction {
     private ActivityInfoService activityInfoService;
     @Resource
     private ActivityParticipatingService activityParticipatingService;
+    @Resource
+    private AdvertisementService advertisementService;
 
     @RequestMapping("/display")
-    public String display(@RequestParam("name") Integer activityId, Model model) {
+    public String display(@RequestParam("name") Integer activityId,
+                          @RequestParam("area1") String ad1,
+                          @RequestParam("area2") String ad2,
+                          Model model) {
         ActivityInfo activityInfoDetail = activityInfoService.getGivenActivityInfo(activityId);
         //to display particular activity
         List<ActivityInfo> activityInfo = activityInfoService.getActivityInfo();
         // to display all the activities
+        List<Advertise> advertiseList1 = advertisementService.getAdvertise(ad1);
         model.addAttribute("activityInfoDetail", activityInfoDetail);
         model.addAttribute("activityInfo", activityInfo);
+        model.addAttribute("ad1",advertiseList1);
+        List<Advertise> advertiseList2 = advertisementService.getAdvertise(ad2);
+        model.addAttribute("ad2",advertiseList2);
 
 
         boolean activityType = activityParticipatingService.selectByUidAndAid(1000, activityId);
