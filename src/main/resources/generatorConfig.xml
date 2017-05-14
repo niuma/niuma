@@ -42,6 +42,6 @@
         数据库中的表哪些需要生成，就在这里面配置
         不需要重复生成，生成一次，就删除！
         -->
-        <table tableName="pctours" domainObjectName="Pctours"></table>
+        <table tableName="advertise" domainObjectName="Advertise"></table>
     </context>
 </generatorConfiguration>
